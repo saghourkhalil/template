@@ -33,30 +33,15 @@ body {
 	height: 1153px;
 	width: 1643px;
 	background:#fff;
+	padding-bottom: 30px;
 }
 #header{
 	height:92px; 
 	background:#fff url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/header-icons.png") 1448px -2px no-repeat;
 	border-bottom:1px solid #eee;
 }
-#header ul{padding:33px 0 0 45px;}
-#header li{
-	list-style:none;
-	float:left;
-	margin-right:30px;	
-}
-#header li a{
-	font-weight:700;
-	color:#333;
-	font-size:14px;	
-	text-decoration:none;
-	text-transform:uppercase;
-	letter-spacing:1px;
-}
-#headerli a:hover{
-	color:#000;
-	cursor:pointer;
-}
+
+
 #grid-selector{
 	height: 10px;
 	width: 1291px;
@@ -104,9 +89,10 @@ body {
 #sidebar{
 	float:left;
 	background:#fff;
-	width:275px;	
+	width:300px;	
 	padding:13px 0 0 45px;
-	height:1400px;
+	height:1500px;
+	padding-top: 50px;
 	border-right:1px solid #eee;
 }
 #sidebar h3{
