@@ -1,12 +1,15 @@
+<div class = "text-center">
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: new_registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+
 
   <div class="field">
   <%= f.label :name %><br />
-  <%= f.text_field :name %>
+  <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
 </div>
+
 
   <div class="field">
     <%= f.label :email %><br />
@@ -32,3 +35,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
