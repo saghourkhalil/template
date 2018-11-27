@@ -11063,3 +11063,210 @@ puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (383.8ms)[0m  [1m[35mCREATE DATABASE "boutique_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (260.2ms)[0m  [1m[35mCREATE DATABASE "boutique_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2034977732639411910)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20181126143405)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181126143405_devise_create_users.rb:5
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20181126143405_devise_create_users.rb:40
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20181126143405_devise_create_users.rb:41
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181126143405"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateItems (20181127085930)
+  [1m[35m (3.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "items" ("id" bigserial primary key, "title" character varying, "description" text, "price" decimal(3,2), "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181127085930_create_items.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181127085930"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-27 09:00:37.170243"], ["updated_at", "2018-11-27 09:00:37.170243"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2034977732639411910)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "cat eyes photo"], ["description", "Magnam magni impedit. Accusantium in sed. Reprehenderit dolor repellat."], ["price", "1.0"], ["image_url", "https://burst.shopify.com/photos/cat-eyes-photo"], ["created_at", "2018-11-27 09:02:00.602743"], ["updated_at", "2018-11-27 09:02:00.602743"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "comfortable living room cat"], ["description", "Eligendi quod explicabo. Occaecati facilis cumque. Dolor ut totam."], ["price", "7.0"], ["image_url", "https://burst.shopify.com/photos/comfortable-living-room-cat"], ["created_at", "2018-11-27 09:02:00.605425"], ["updated_at", "2018-11-27 09:02:00.605425"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "cute cat photo"], ["description", "Aliquid dolorum vero. Et asperiores ipsam. Voluptatum sequi tempora."], ["price", "7.0"], ["image_url", "https://burst.shopify.com/photos/cute-cat-photo"], ["created_at", "2018-11-27 09:02:00.607443"], ["updated_at", "2018-11-27 09:02:00.607443"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "cute curious cat"], ["description", "Maxime culpa nihil. Aut officiis temporibus. Laudantium porro officia."], ["price", "6.0"], ["image_url", "https://burst.shopify.com/photos/cute-curious-cat"], ["created_at", "2018-11-27 09:02:00.609578"], ["updated_at", "2018-11-27 09:02:00.609578"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "grey and white cat"], ["description", "Consequatur velit sequi. Omnis autem distinctio. Omnis laudantium et."], ["price", "4.0"], ["image_url", "https://burst.shopify.com/photos/grey-and-white-cat"], ["created_at", "2018-11-27 09:02:00.611606"], ["updated_at", "2018-11-27 09:02:00.611606"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "grey cat lays in sun"], ["description", "Aut incidunt commodi. Accusamus culpa nostrum. Quam et eum."], ["price", "10.0"], ["image_url", "https://burst.shopify.com/photos/grey-cat-lays-in-sun"], ["created_at", "2018-11-27 09:02:00.613542"], ["updated_at", "2018-11-27 09:02:00.613542"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "cat eyes photo"], ["description", "Recusandae libero error. Voluptas voluptatibus quis. Rerum quisquam voluptatem."], ["price", "4.69"], ["image_url", "https://burst.shopify.com/photos/cat-eyes-photo"], ["created_at", "2018-11-27 09:02:21.049584"], ["updated_at", "2018-11-27 09:02:21.049584"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "comfortable living room cat"], ["description", "Doloribus quam nostrum. Fugiat illum nisi. Consequatur quibusdam est."], ["price", "8.89"], ["image_url", "https://burst.shopify.com/photos/comfortable-living-room-cat"], ["created_at", "2018-11-27 09:02:21.052264"], ["updated_at", "2018-11-27 09:02:21.052264"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "cute cat photo"], ["description", "Quis quia corrupti. Placeat quisquam voluptatem. Veritatis ut praesentium."], ["price", "7.48"], ["image_url", "https://burst.shopify.com/photos/cute-cat-photo"], ["created_at", "2018-11-27 09:02:21.054469"], ["updated_at", "2018-11-27 09:02:21.054469"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "cute curious cat"], ["description", "Ducimus rerum nam. Ipsum consectetur officiis. Enim magnam autem."], ["price", "3.41"], ["image_url", "https://burst.shopify.com/photos/cute-curious-cat"], ["created_at", "2018-11-27 09:02:21.056817"], ["updated_at", "2018-11-27 09:02:21.056817"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "grey and white cat"], ["description", "Ex minima alias. Ut voluptates rerum. Earum eligendi odio."], ["price", "9.25"], ["image_url", "https://burst.shopify.com/photos/grey-and-white-cat"], ["created_at", "2018-11-27 09:02:21.059124"], ["updated_at", "2018-11-27 09:02:21.059124"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "grey cat lays in sun"], ["description", "Molestiae corporis consequuntur. Est ipsam asperiores. Aut quo praesentium."], ["price", "8.37"], ["image_url", "https://burst.shopify.com/photos/grey-cat-lays-in-sun"], ["created_at", "2018-11-27 09:02:21.061443"], ["updated_at", "2018-11-27 09:02:21.061443"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "cat rests in bedroom"], ["description", "Perspiciatis enim ut. Architecto cum ea. Minus accusantium nam."], ["price", "4.97"], ["image_url", "https://burst.shopify.com/photos/cat-rests-in-bedroom"], ["created_at", "2018-11-27 09:02:21.063587"], ["updated_at", "2018-11-27 09:02:21.063587"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "green eyed grey cat"], ["description", "Voluptatum quo ad. Dignissimos quos velit. Provident animi eius."], ["price", "7.25"], ["image_url", "https://burst.shopify.com/photos/green-eyed-grey-cat"], ["created_at", "2018-11-27 09:02:21.065562"], ["updated_at", "2018-11-27 09:02:21.065562"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "business cat in office"], ["description", "Eaque earum sit. Et maiores nihil. Modi sapiente magni."], ["price", "3.96"], ["image_url", "https://burst.shopify.com/photos/business-cat-in-office"], ["created_at", "2018-11-27 09:02:21.067635"], ["updated_at", "2018-11-27 09:02:21.067635"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "grey cat with blue eyes"], ["description", "Et omnis aliquid. Omnis et placeat. Minima nobis qui."], ["price", "4.75"], ["image_url", "https://burst.shopify.com/photos/grey-cat-with-blue-eyes"], ["created_at", "2018-11-27 09:02:21.069628"], ["updated_at", "2018-11-27 09:02:21.069628"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "blue eyed cat peeking"], ["description", "Excepturi amet et. Omnis voluptatem rerum. Cum facilis fuga."], ["price", "6.06"], ["image_url", "https://burst.shopify.com/photos/blue-eyed-cat-peeking"], ["created_at", "2018-11-27 09:02:21.071618"], ["updated_at", "2018-11-27 09:02:21.071618"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "cat on sofa near window"], ["description", "Facilis enim culpa. Ea molestiae officiis. Dolores id autem."], ["price", "4.75"], ["image_url", "https://burst.shopify.com/photos/cat-on-sofa-near-window"], ["created_at", "2018-11-27 09:02:21.073628"], ["updated_at", "2018-11-27 09:02:21.073628"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "blue eyed cat daydreams"], ["description", "Nesciunt sequi iste. Harum quam vel. Facilis quo perspiciatis."], ["price", "5.3"], ["image_url", "https://burst.shopify.com/photos/blue-eyed-cat-daydreams"], ["created_at", "2018-11-27 09:02:21.075538"], ["updated_at", "2018-11-27 09:02:21.075538"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "green cat eyes"], ["description", "In necessitatibus quo. Ipsam et voluptates. Quisquam quis minima."], ["price", "9.51"], ["image_url", "https://burst.shopify.com/photos/green-cat-eyes"], ["created_at", "2018-11-27 09:02:21.077374"], ["updated_at", "2018-11-27 09:02:21.077374"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "beautiful cat"], ["description", "Aut laudantium maxime. Officiis qui dolor. Aut commodi consequatur."], ["price", "5.17"], ["image_url", "https://burst.shopify.com/photos/beautiful-cat"], ["created_at", "2018-11-27 09:02:21.079429"], ["updated_at", "2018-11-27 09:02:21.079429"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "majestic grey cat"], ["description", "Accusantium cumque sed. Beatae aut animi. Qui distinctio consequatur."], ["price", "2.99"], ["image_url", "https://burst.shopify.com/photos/majestic-grey-cat"], ["created_at", "2018-11-27 09:02:21.081460"], ["updated_at", "2018-11-27 09:02:21.081460"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "kitten peaking through greenery"], ["description", "Perspiciatis voluptatem quos. Illum eos itaque. Ex tempore soluta."], ["price", "2.81"], ["image_url", "https://burst.shopify.com/photos/kitten-peaking-through-greenery"], ["created_at", "2018-11-27 09:02:21.083528"], ["updated_at", "2018-11-27 09:02:21.083528"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "sleeping cat close up"], ["description", "Quo provident excepturi. Labore magni nihil. Facilis veniam suscipit."], ["price", "5.61"], ["image_url", "https://burst.shopify.com/photos/sleeping-cat-close-up"], ["created_at", "2018-11-27 09:02:21.085562"], ["updated_at", "2018-11-27 09:02:21.085562"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "cats face closeup"], ["description", "Aut voluptate consequuntur. Alias minus ut. Ea ut facilis."], ["price", "3.31"], ["image_url", "https://burst.shopify.com/photos/cats-face-closeup"], ["created_at", "2018-11-27 09:02:21.087569"], ["updated_at", "2018-11-27 09:02:21.087569"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Create (0.2ms)[0m  [1m[32mINSERT INTO "items" ("title", "description", "price", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "blue eyed persian cat by window"], ["description", "Reprehenderit autem consequatur. Error est quia. Suscipit aut explicabo."], ["price", "3.33"], ["image_url", "https://burst.shopify.com/photos/blue-eyed-persian-cat-by-window"], ["created_at", "2018-11-27 09:02:21.089446"], ["updated_at", "2018-11-27 09:02:21.089446"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT  "items".* FROM "items" LIMIT $1[0m  [["LIMIT", 11]]

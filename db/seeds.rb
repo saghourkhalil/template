@@ -12,5 +12,5 @@ require 'open-uri'
     end
 
     20.times do |y|
-        @items = Item.create(title:@tabtitle[y], description:Faker::Lorem.paragraph, price:rand(1..10), image_url:@taburl[y])
+        @items = Item.create(title:@tabtitle[y], description:Faker::Lorem.paragraph, price:rand(1.00..10), image_url:@taburl[y])
     end
