@@ -2,15 +2,14 @@ require 'faker'
 require 'nokogiri'
 require 'open-uri'
 
-    doc = Nokogiri::HTML(open("https://burst.shopify.com/cat"))
+    doc = Nokogiri::HTML(open("https://wall.alphacoders.com/search.php?lang=French&search=chat"))
     @taburl = []
-    @tabtitle = []
+    @tabtitle = ["chat dorée","chat chat","un petit chat trés mignion","chat gris","chat de la vega","chat petit","chat saute","chat de se chat"]
     myhash = {}
     20.times do
-        doc.css('.photo-tile__image-wrapper @href').each do |url| @tabtitle << url.text.delete('/')[6..-1].gsub!('-',' ') end
-        doc.css('.photo-tile__image-wrapper @href').each do |url| @taburl << "https://burst.shopify.com#{url.text}" end
+        doc.css('.boxgrid img @src').each do |url| @taburl << url.text end
     end
 
-    20.times do |y|
-        @items = Item.create(title:@tabtitle[y], description:Faker::Lorem.paragraph, price:rand(1.00..10), image_url:@taburl[y])
+    8.times do |y|
+        @items = Item.create(title:@tabtitle[y], description:Faker::Lorem.paragraph, price:rand(1.00...10), image_url:@taburl[y])
     end
