@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   resources :cart
   resources :item
   devise_for :users
+<<<<<<< HEAD
+  resources :item
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+=======
 
+>>>>>>> master
 end

@@ -100,9 +100,16 @@
                 <div class="image_overlay"></div>
 
                 <% if user_signed_in? %>
+<<<<<<< HEAD
+                
+                <div class="add_to_cart">
+                <li><%= link_to 'Add to cart', item,method: :show,:remote => true, :class => 'create_item' %></li>
+                </div>
+=======
                     
                     <%= button_to "Add To Cart", cart_items_path(item_id: item), class: "add_to_cart" %> 
                 
+>>>>>>> master
                 <% end %>
 
                 <div class="view_gallery">View gallery</div>                
