@@ -1,4 +1,76 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_cart_item_path(@cart_item) %> |
-<%= link_to 'Back', cart_items_path %>
+
+<h2>Panier</h2>
+<% @price_total = 0 %>
+ <% @cart_item.each do |i| %>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-sm-8 col-md-6">
+                        <div class="media">
+                            <a class="thumbnail pull-left" href="#">
+                             <img class="media-object" src="<%=i.item.image_url%>" style="width: 72px; height: 72px;"> </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="#"><%=i.item.title %></a></h4>
+                                <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                            </div>
+                        </div></td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                        <input id="quantity" type="email" class="form-control" id="exampleInputEmail1" value="1">
+                        </td>
+                        <td id="price" class="col-sm-1 col-md-1 text-center"><strong><%=i.item.price %></strong></td>
+                        <td id="totalprice" class="col-sm-1 col-md-1 text-center"><strong></strong></td>
+                        <td class="col-sm-1 col-md-1">
+                        <button type="button" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span> Remove
+                        </button></td>
+                    </tr>
+                    <% @price_total += i.item.price.to_f %>
+                    <% end %>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td id ="total" class="text-right"><h3><strong><%= @price_total %></strong></h3></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                        </button></td>
+                        <td>
+                        <button id="chackout" type="button" class="btn btn-success">
+                            Checkout <span class="glyphicon glyphicon-play"></span>
+                        </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+$( document ).ready(function() {
+    $("#chackout").click(function() {
+    let subtotal = $("#price strong").html() * parseInt($("#quantity").val())
+    console.log(subtotal);
+    });
+});
+</script>

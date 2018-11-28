@@ -8,7 +8,5 @@ class CreateItems < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    has_many :cartitems
-    has_many :carts, through: :cartitems
   end
 end
